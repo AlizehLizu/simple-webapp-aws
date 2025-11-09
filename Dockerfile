@@ -1,18 +1,20 @@
-# Node.js base image
-FROM node:20
+# Use official Node.js LTS image
+FROM node:22
 
 # Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy package.json first for caching
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copy all app files
+# Copy rest of the app
 COPY . .
 
 # Expose port
 EXPOSE 3000
 
-# Start the app
-CMD ["npm", "start"]
+# Start server
+CMD ["node", "server.js"]

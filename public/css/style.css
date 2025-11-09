@@ -1,0 +1,46 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.pastel-green { background-color: #A8E6CF !important; color: #000 !important; }
+.pastel-blue { background-color: #89CFF0 !important; color: #000 !important; }
+.pastel-yellow { background-color: #FFFACD !important; color: #000 !important; }
+.pastel-pink { background-color: #FFB6C1 !important; color: #000 !important; }
+.pastel-purple { background-color: #D8BFD8 !important; color: #000 !important; }
+.pastel-orange { background-color: #FFDAB9 !important; color: #000 !important; }
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+/* Landing Page */
+.landing-body {
+  background: linear-gradient(to right, #A8E6CF, #FFB6C1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.landing-body h1 {
+  font-size: 4rem;
+}
+
+.landing-body p {
+  font-size: 1.5rem;
+}
+
+.landing-body button {
+  padding: 0.8rem 2rem;
+  font-size: 1.25rem;
+}
+
+
+.hero {
+  height: calc(100vh - 70px);
+  color: #fff;
+}

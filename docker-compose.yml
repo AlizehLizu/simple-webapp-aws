@@ -1,7 +1,7 @@
-version: "3.9"
+version: '3.9'
 
 services:
-  web:
+  app:
     build: .
     container_name: student_app
     ports:
@@ -10,8 +10,7 @@ services:
       - mongo
     volumes:
       - ./public:/app/public
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/studentdb
+    restart: unless-stopped
 
   mongo:
     image: mongo:6
@@ -20,7 +19,7 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+    restart: unless-stopped
 
 volumes:
   mongo_data:
-

@@ -3,6 +3,12 @@ function showModule(module) {
   document.getElementById(module).classList.remove('d-none');
 }
 
+function enterSystem() {
+  document.getElementById('landingPage').classList.add('d-none'); // Hide landing
+  showModule('dashboard'); // Show default dashboard
+}
+
+
 async function fetchData(endpoint) {
   return await fetch(`/${endpoint}`).then(res => res.json());
 }
