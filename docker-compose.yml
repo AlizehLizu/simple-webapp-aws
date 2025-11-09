@@ -1,24 +1,26 @@
-version: '3.8'
+version: "3.9"
 
 services:
-  app:
+  web:
     build: .
     container_name: student_app
     ports:
       - "3000:3000"
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/studentdb
     depends_on:
       - mongo
+    volumes:
+      - ./public:/app/public
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/studentdb
 
   mongo:
     image: mongo:6
     container_name: mongo_db
-    restart: always
-    volumes:
-      - mongo_data:/data/db
     ports:
       - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
 
 volumes:
   mongo_data:
+
