@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  web:
+    image: node:18
+    container_name: web_jenkins_container
+    working_dir: /app
+    volumes:
+      - ./:/app        # mount code from repo into container
+      - /app/node_modules
+    ports:
+      - "3001:3000"    # maps host port 3001 -> container 3000
+    command: bash -c "npm install --no-audit --no-fund && npm start"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    container_name: db_jenkins_container
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
